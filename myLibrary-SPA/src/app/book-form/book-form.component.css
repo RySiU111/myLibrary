@@ -1,0 +1,15 @@
+.container-fluid { 
+    display: grid;  
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    align-items: center;
+}
+.example-card {
+    max-width: 300px; 
+    min-width: 300px; 
+    margin:20px;
+  }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
