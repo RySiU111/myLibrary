@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { MaterialModule } from './material';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { BooksService } from './_services/books.service';
 import { BookDetailedComponent } from './book/book-detailed/book-detailed.component';
 import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookListComponent } from './book/book-list/book-list.component';
+
+
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { BookListComponent } from './book/book-list/book-list.component';
       BrowserModule,
       HttpClientModule,
       RouterModule.forRoot(appRoutes),
-      MaterialModule
+      MaterialModule,
+      FormsModule
    ],
    providers: [
       BooksService

@@ -33,4 +33,12 @@ export class BookDetailedComponent implements OnInit {
     });
   }
 
+  deleteBook() {
+    this.booksService.deleteBook(this.id).subscribe(response => {
+      console.log('deleted');
+    }, error => {
+      console.log(error);
+    });
+  }
+
 }

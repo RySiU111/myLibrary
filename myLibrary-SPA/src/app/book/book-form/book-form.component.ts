@@ -10,7 +10,7 @@ export class BookFormComponent implements OnInit {
 
   constructor(private booksService: BooksService) { }
 
-  book: any;
+  book: any = {};
 
   ngOnInit() {
   }

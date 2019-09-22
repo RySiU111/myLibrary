@@ -1,9 +1,12 @@
-<p>
-  book-form works!
-</p>
-<p>
-  book-form works!
-</p>
-<p>
-  book-form works!
-</p>
+<form #bookForm="ngForm" class="example-form" (ngSubmit)="postBook()">
+  <mat-form-field class="example-full-width" >
+    <input matInput placeholder="Title" name="Title" required [(ngModel)]="book.Title">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" >
+    <input matInput placeholder="Release Date" name="ReleaseDate" type="date" required [(ngModel)]="book.ReleaseDate">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" >
+    <input matInput placeholder="Description" name="Description" required [(ngModel)]="book.Description">
+  </mat-form-field>
+  <button [disabled]="!bookForm.valid" mat-button color="primary" type="submit">Add</button>
+</form>

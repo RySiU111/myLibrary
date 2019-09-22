@@ -19,12 +19,12 @@ getBook(id: any): Observable<any> {
   return this.http.get(this.baseUrl + '/books/' + id);
 }
 
-postBook(model: any): Observable<any> {
-  return this.http.post(this.baseUrl, model);
+postBook(model: any) {
+  return this.http.post(this.baseUrl + '/books/', model);
 }
 
-deleteBook(id: number) {
-
+deleteBook(id: any) {
+  return this.http.delete(this.baseUrl + '/books/' + id);
 }
 
 }
