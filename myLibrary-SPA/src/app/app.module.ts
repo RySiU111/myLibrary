@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { BooksService } from './_services/books.service';
-import { BookDetailedComponent } from './book-detailed/book-detailed.component';
-import { BookFormComponent } from './book-form/book-form.component';
-import { BookListComponent } from './book-list/book-list.component';
+import { BookDetailedComponent } from './book/book-detailed/book-detailed.component';
+import { BookFormComponent } from './book/book-form/book-form.component';
+import { BookListComponent } from './book/book-list/book-list.component';
 
 
 @NgModule({

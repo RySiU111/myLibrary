@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from 'selenium-webdriver/http';
-import { BooksService } from '../_services/books.service';
+import { BooksService } from '../../_services/books.service';
 
 @Component({
   selector: 'app-book-list',
