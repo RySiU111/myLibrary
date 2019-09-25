@@ -1,12 +1,12 @@
-<form #bookForm="ngForm" class="example-form" (ngSubmit)="postBook()">
+<form *ngIf=(book) #bookForm="ngForm" class="example-form" (ngSubmit)="postBook()">
   <mat-form-field class="example-full-width" >
-    <input matInput placeholder="Title" name="Title" required [(ngModel)]="book.Title">
+    <input matInput placeholder="Title" name="Title" required [(ngModel)]="book.title">
   </mat-form-field>
   <mat-form-field class="example-full-width" >
-    <input matInput placeholder="Release Date" name="ReleaseDate" type="date" required [(ngModel)]="book.ReleaseDate">
+    <input matInput placeholder="Release Date" name="ReleaseDate" type="date" required [(ngModel)]="book.releaseDate">
   </mat-form-field>
   <mat-form-field class="example-full-width" >
-    <input matInput placeholder="Description" name="Description" required [(ngModel)]="book.Description">
+    <input matInput placeholder="Description" name="Description" required [(ngModel)]="book.description">
   </mat-form-field>
   <button [disabled]="!bookForm.valid" mat-button color="primary" type="submit">Add</button>
 </form>

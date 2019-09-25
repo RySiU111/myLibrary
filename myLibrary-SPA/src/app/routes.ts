@@ -10,8 +10,9 @@ export const appRoutes: Routes = [
         children: [ { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: BookListComponent }]},
     { path: 'books', component: BookFormComponent,
-        children: [ { path: '', redirectTo: 'form', pathMatch: 'full' },
-            { path: 'form', component: BookFormComponent }]},
+        children: [ { path: '', redirectTo: 'form/:id', pathMatch: 'full' },
+            { path: 'form/:id', component: BookFormComponent }]},
     { path: 'books/:id', component: BookDetailedComponent },
+    { path: 'form/:id', component: BookFormComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { BooksService } from '../../_services/books.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-detailed',
@@ -10,14 +11,14 @@ import { BooksService } from '../../_services/books.service';
 export class BookDetailedComponent implements OnInit {
 
   id: any;
-  book: any;
+  book: any = {};
 
   constructor(private booksService: BooksService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe( paramMap => {
       console.log(paramMap);
       this.id = paramMap.get('id');
     }, error => {
-      console.log('error')
+      console.log(error);
     });
    }
 
@@ -29,7 +30,7 @@ export class BookDetailedComponent implements OnInit {
     this.booksService.getBook(this.id).subscribe(response => {
       this.book = response;
     }, error => {
-      console.log('error');
+      console.log(error);
     });
   }
 

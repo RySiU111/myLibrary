@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { MaterialModule } from './material';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -32,10 +33,11 @@ import { BookListComponent } from './book/book-list/book-list.component';
       HttpClientModule,
       RouterModule.forRoot(appRoutes),
       MaterialModule,
-      FormsModule
+      FormsModule,
    ],
    providers: [
-      BooksService
+      BooksService,
+      DatePipe
    ],
    bootstrap: [
       AppComponent
