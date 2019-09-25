@@ -18,5 +18,6 @@ namespace myLibrary.API.Data
         Task<Author> GetAuthor(int id);
         Task<IEnumerable<Author>> GetAuthors();
         void EditAuthor(Author author);
+        Task<Book> SearchBook(string search);
     }
 }

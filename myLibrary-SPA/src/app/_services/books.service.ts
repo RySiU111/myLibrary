@@ -10,6 +10,7 @@ export class BooksService {
 constructor(private http: HttpClient) { }
 
 baseUrl = 'http://localhost:5000/api';
+localHost = 'http://localhost:4200';
 
 getBooks(): Observable<any> {
   return this.http.get(this.baseUrl + '/books');
@@ -25,6 +26,10 @@ postBook(model: any) {
 
 deleteBook(id: any) {
   return this.http.delete(this.baseUrl + '/books/' + id);
+}
+
+searchBook(search: string){
+  return this.http.get(this.baseUrl + '/books/searchBook/' + search.toLowerCase().replace(' ', ''));
 }
 
 }

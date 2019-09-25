@@ -2,6 +2,6 @@
     <p >{{ book.id }}. {{ book.title }}</p>
     <p>Opis: {{book.description}}</p>
     <button mat-button color="warn" (click)="deleteBook()">Delete</button>
-    <a type="mat-button" mat-button routerLink="/form/{{book.id}}" color="blue">Update</a>
+    <a type="mat-button" mat-button routerLink="/bookForm/{{book.id}}" color="blue">Update</a>
 </div>
 

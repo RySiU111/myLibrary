@@ -74,5 +74,11 @@ namespace myLibrary.API.Data
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<Book> SearchBook(string search)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.Title.Replace(" ", "").ToLower() == search.Replace(" ", "").ToLower());
+            return book;
+        }
     }
 }

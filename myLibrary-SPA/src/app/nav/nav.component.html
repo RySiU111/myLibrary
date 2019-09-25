@@ -5,7 +5,7 @@
       <a class="nav-link" [routerLink]="['/books/list']">Books</a>
     </li>
     <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" [routerLink]="['/books/form/0']">Add</a>
+      <a class="nav-link" [routerLink]="['/books/form/new']">Add</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" [routerLink]="['/books']" role="button" data-toggle="dropdown">
@@ -18,14 +18,17 @@
         </div>
       </li>
   </ul>
-  <form class="form-inline my-2 my-lg-0">
+  <form  #searchForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="searchBook()">
     <input
       class="form-control mr-sm-2"
       type="text"
       placeholder="Search"
       aria-label="Search"
-    />
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      name="search"
+      required
+      [(ngModel)]="search"
+      />
+    <button [disabled]="!searchForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">
       Search
     </button>
   </form>

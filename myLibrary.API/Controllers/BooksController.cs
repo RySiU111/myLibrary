@@ -64,5 +64,14 @@ namespace myLibrary.API.Controllers
             var booksToReturn = _mapper.Map<IEnumerable<BookForListDto>>(books);
             return Ok(booksToReturn);
         }
+
+        [Route("[action]/{search}")]
+        [HttpGet]
+        public async Task<IActionResult> SearchBook(string search)
+        {
+            var book = await _repo.SearchBook(search);
+            var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
+            return Ok(bookToReturn);
+        }
     }
 }

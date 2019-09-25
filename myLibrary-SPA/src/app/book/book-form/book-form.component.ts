@@ -15,7 +15,6 @@ export class BookFormComponent implements OnInit {
 
   constructor(private booksService: BooksService, private route: ActivatedRoute, private datePipe: DatePipe) {
     this.route.paramMap.subscribe( paramMap => {
-      console.log(paramMap);
       this.id = paramMap.get('id');
     }, error => {
       console.log(error);

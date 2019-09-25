@@ -33,7 +33,7 @@ import { BookListComponent } from './book/book-list/book-list.component';
       HttpClientModule,
       RouterModule.forRoot(appRoutes),
       MaterialModule,
-      FormsModule,
+      FormsModule
    ],
    providers: [
       BooksService,
