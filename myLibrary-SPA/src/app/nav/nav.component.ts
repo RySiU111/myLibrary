@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
       if (this.book == null) {
         console.log('not found');
       } else {
-        window.location.href = this.bookService.localHost + '/books/' + this.book.id;
+        window.location.href = this.bookService.localhost + '/books/' + this.book.id;
       }
     }, error => {
       console.log(error);

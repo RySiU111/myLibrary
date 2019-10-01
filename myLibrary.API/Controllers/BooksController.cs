@@ -28,6 +28,10 @@ namespace myLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostBook (BookForDetailedDto book)
         {
+            if(book == null)
+            {
+                return StatusCode(400);
+            }
             var bookToSave = _mapper.Map<Book>(book);
             
             if(book.Id == 0){
@@ -44,25 +48,46 @@ namespace myLibrary.API.Controllers
         public async Task<IActionResult> DeleteBook (int id)
         {
             var bookToDelete = await _repo.GetBook(id);
-            _repo.DeleteBook(bookToDelete);
-            await _repo.SaveAll();
-            return Ok(bookToDelete);
+            if(bookToDelete != null)
+            {
+                _repo.DeleteBook(bookToDelete);
+                await _repo.SaveAll();
+                return StatusCode(200);
+            }
+            else 
+            {
+                return StatusCode(404);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBook(int id)
         {
             var book = await _repo.GetBook(id);
-            var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
-            return Ok(bookToReturn);
+            if(book != null)
+            {
+                var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
+                return Ok(bookToReturn);
+            } 
+            else 
+            {
+                return new OkObjectResult(null) {StatusCode = 404};
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetBooks()
         {
             var books = await _repo.GetBooks();
-            var booksToReturn = _mapper.Map<IEnumerable<BookForListDto>>(books);
-            return Ok(booksToReturn);
+            if(books != null)
+            {
+                var booksToReturn = _mapper.Map<IEnumerable<BookForListDto>>(books);
+                return Ok(booksToReturn);
+            }
+            else 
+            {
+                return new OkObjectResult(null) {StatusCode = 404};
+            }
         }
 
         [Route("[action]/{search}")]
@@ -70,8 +95,14 @@ namespace myLibrary.API.Controllers
         public async Task<IActionResult> SearchBook(string search)
         {
             var book = await _repo.SearchBook(search);
-            var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
-            return Ok(bookToReturn);
+            if(book != null){
+                var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
+                return Ok(bookToReturn);
+            }
+            else 
+            {
+                return new OkObjectResult(null) {StatusCode = 404};
+            }
         }
     }
 }
