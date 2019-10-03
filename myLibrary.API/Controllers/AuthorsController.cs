@@ -22,8 +22,12 @@ namespace myLibrary.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAythor (AuthorForDetailedDto author)
+        public async Task<IActionResult> PostAuthor (AuthorForDetailedDto author)
         {
+            if(author == null)
+            {
+                return StatusCode(400);
+            }
             var authorToSave = _mapper.Map<Author>(author);
             
             if(author.Id == 0){
@@ -40,26 +44,47 @@ namespace myLibrary.API.Controllers
         public async Task<IActionResult> DeleteAuthor (int id)
         {
             var authorToDelete = await _repo.GetAuthor(id);
-            _repo.DeleteAuthor(authorToDelete);
-            await _repo.SaveAll();
-            return Ok(authorToDelete);
+            if(authorToDelete != null)
+            {
+                _repo.DeleteAuthor(authorToDelete);
+                await _repo.SaveAll();
+                return StatusCode(200);
+            }
+            else
+            {
+                return StatusCode(404);
+            }
+
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAuthor(int id)
         {
             var author = await _repo.GetAuthor(id);
-            var authorToReturn = _mapper.Map<AuthorForDetailedDto>(author);
-            return Ok(authorToReturn);
+            if(author != null)
+            {
+                var authorToReturn = _mapper.Map<AuthorForDetailedDto>(author);
+                return Ok(authorToReturn);
+            }
+            else
+            {
+                return new OkObjectResult(null) {StatusCode = 404};
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAuthors()
         {
             var authors = await _repo.GetAuthors();
-            var authorsToReturn = _mapper.Map<IEnumerable<AuthorForListDto>>(authors);
-            return Ok(authorsToReturn);
+            if(authors != null)
+            {
+                var authorsToReturn = _mapper.Map<IEnumerable<AuthorForListDto>>(authors);
+                return Ok(authorsToReturn);
+            }
+            else
+            {
+                return new OkObjectResult(null) {StatusCode = 404};
+            }
         }
-
     }
 }

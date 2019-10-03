@@ -13,7 +13,7 @@ using Xunit;
 
 namespace myLibrary.Tests
 {
-    public class ControllerTests
+    public class BookControllerTests
     {
         [Fact]
         public async Task GetBook_ValidId_ReturnedOkObjectResultNotNullStatusCode200()
