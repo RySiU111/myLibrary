@@ -30,9 +30,12 @@ namespace myLibrary.API.Controllers
             }
             var authorToSave = _mapper.Map<Author>(author);
             
-            if(author.Id == 0){
+            if(author.Id == 0)
+            {
                 _repo.AddAuthor(authorToSave);
-            } else {
+            } 
+            else 
+            {
                 _repo.EditAuthor(authorToSave);
             }
 
@@ -54,7 +57,6 @@ namespace myLibrary.API.Controllers
             {
                 return StatusCode(404);
             }
-
         }
 
         [HttpGet("{id}")]

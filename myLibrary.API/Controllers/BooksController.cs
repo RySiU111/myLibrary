@@ -34,9 +34,12 @@ namespace myLibrary.API.Controllers
             }
             var bookToSave = _mapper.Map<Book>(book);
             
-            if(book.Id == 0){
+            if(book.Id == 0)
+            {
                 _repo.AddBook(bookToSave);
-            } else {
+            } 
+            else 
+            {
                 _repo.EditBook(bookToSave);
             }
 
@@ -95,7 +98,8 @@ namespace myLibrary.API.Controllers
         public async Task<IActionResult> SearchBook(string search)
         {
             var book = await _repo.SearchBook(search);
-            if(book != null){
+            if(book != null)
+            {
                 var bookToReturn = _mapper.Map<BookForDetailedDto>(book);
                 return Ok(bookToReturn);
             }
