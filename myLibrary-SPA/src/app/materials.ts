@@ -5,6 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -21,7 +25,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class AppMaterialsModule { }

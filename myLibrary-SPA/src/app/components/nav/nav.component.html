@@ -1,6 +1,15 @@
 <nav mat-tab-nav-bar [backgroundColor]="background">
-    <a mat-tab-link *ngFor="let link of links"
-    (click)="activeLink = link"
-    [active]="activeLink == link"> {{link.Name}} </a>
-    <a mat-tab-link>Disabled Link</a>
+  <div class="mr-auto">
+      <a mat-tab-link *ngFor="let link of links"
+      (click)="activeLink = link"
+      [active]="activeLink == link"> {{link.Name}} </a>
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>Add Book</span>
+    </button>
+  </mat-menu>
   </nav>
