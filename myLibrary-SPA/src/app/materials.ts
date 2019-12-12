@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatTooltipModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -27,7 +29,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatTooltipModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AppMaterialsModule { }
