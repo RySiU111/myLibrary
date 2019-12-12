@@ -3,28 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './routes';
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent } from './nav/nav.component';
 import { AppMaterialsModule } from './materials';
-import { BookDashboardComponent } from './components/book-dashboard/book-dashboard.component';
-import { BookServiceService } from './_services/book-service.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BookCardComponent } from './components/book-card/book-card.component';
+import { BooksModule } from './books/books.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    BookDashboardComponent,
-    BookCardComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppMaterialsModule,
-    HttpClientModule
+    HttpClientModule,
+    BooksModule
   ],
-  providers: [BookServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
