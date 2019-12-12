@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root'
 })
-export class BookServiceService {
+export class BookService {
   baseUrl = 'http://localhost:5000/api';
 
   constructor(private http: HttpClient) { }
@@ -26,7 +26,7 @@ export class BookServiceService {
     return this.http.delete(this.baseUrl + '/books/' + id);
   }
 
-  searchBook(search: string){
+  searchBook(search: string) {
     return this.http.get(this.baseUrl + '/books/searchBook/' + search.toLowerCase().replace(' ', ''));
   }
 }
