@@ -7,15 +7,19 @@ import { NavComponent } from './nav/nav.component';
 import { AppMaterialsModule } from './materials';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksModule } from './books/books.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AppMaterialsModule,
     HttpClientModule,

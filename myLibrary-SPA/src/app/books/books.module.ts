@@ -5,6 +5,7 @@ import { BookDashboardComponent } from './book-dashboard/book-dashboard.componen
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookService } from './services/book.service';
 import { AppMaterialsModule } from '../materials';
+import { BooksRoutingModule } from './books-routing.module';
 
 
 
@@ -19,7 +20,8 @@ import { AppMaterialsModule } from '../materials';
   ],
   imports: [
     CommonModule,
-    AppMaterialsModule
+    AppMaterialsModule,
+    BooksRoutingModule
   ],
   providers: [
     BookService

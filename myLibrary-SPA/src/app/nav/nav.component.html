@@ -1,8 +1,15 @@
 <nav mat-tab-nav-bar [backgroundColor]="background">
   <div class="mr-auto">
-      <a mat-tab-link *ngFor="let link of links"
-      (click)="activeLink = link"
-      [active]="activeLink == link"> {{link.Name}} </a>
+      <a mat-tab-link #books
+      (click)="activeLink = books"
+      [active]="activeLink == books"
+      [routerLink]="['/books']" 
+      routerLinkActive="router-link-active">Books</a>
+      <a mat-tab-link #authors
+      (click)="activeLink = authors"
+      [active]="activeLink == authors"
+      [routerLink]="['/authors']" 
+      routerLinkActive="router-link-active">Authors</a>
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>

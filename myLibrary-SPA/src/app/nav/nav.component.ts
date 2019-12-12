@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   background = 'primary';
-  links = [{ Name: 'Books', Url: '#'},
-    { Name: 'Authors', Url: '#'},
-    { Name: 'Other', Url: '#'}];
-  activeLink = this.links[0];
+  activeLink = 'Books';
 
   constructor() { }
 
