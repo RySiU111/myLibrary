@@ -6,22 +6,22 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookService } from './services/book.service';
 import { AppMaterialsModule } from '../materials';
 import { BooksRoutingModule } from './books-routing.module';
+import { BookFormComponent } from './book-form/book-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     BookDashboardComponent,
-    BookCardComponent
-  ],
-  exports: [
-    BookDashboardComponent,
-    BookCardComponent
+    BookCardComponent,
+    BookFormComponent
   ],
   imports: [
     CommonModule,
     AppMaterialsModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    FormsModule
   ],
   providers: [
     BookService

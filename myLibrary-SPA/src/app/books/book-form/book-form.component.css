@@ -1,17 +1,13 @@
-.mat-card-book {
-  width: 250px;
-  height: 400px;
-}
 .mat-card {
   display:flex;
   flex-direction: column;
 }
   
 .mat-card-header {
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
   
 .mat-card-content {
-  flex-grow: 1;
-  overflow: none;
+    flex-grow: 1;
+    overflow: none;
 }

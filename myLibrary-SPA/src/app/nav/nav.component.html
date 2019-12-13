@@ -15,8 +15,10 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>Add Book</span>
+    <a [routerLink]="['/books/form']" routerLinkActive="router-link-active" >
+    <button mat-menu-item>  
+        <span>Add Book</span>  
     </button>
+  </a> 
   </mat-menu>
   </nav>
