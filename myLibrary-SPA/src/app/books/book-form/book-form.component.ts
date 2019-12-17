@@ -20,33 +20,33 @@ export class BookFormComponent implements OnInit {
 
   constructor(private bookService: BookService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
       this.id = params.get('id');
     }, error => {
       console.log(error);
     });
+
     // tslint:disable-next-line: triple-equals
     if (isNaN(this.id) || (this.id == 0)) {
       this.router.navigate(['not-found']);
-    } else {
-      this.getBookToEdit(this.id);
+    } else if (this.id != null) {
+      await this.getBookToEdit(this.id);
     }
   }
 
   save() {
     this.bookService.postBook(this.book).subscribe(response => {
-      console.log(response);
       this.router.navigate(['books']);
     }, error => {
       console.log(error);
     });
   }
 
-  getBookToEdit(id: number) {
+  async getBookToEdit(id: number) {
     this.bookService.getBook(this.id).subscribe(response => {
       this.book = response;
-      console.log(this.book);
+      this.book.releaseDate = this.bookService.setDateWithTimeZone(new Date(this.book.releaseDate));
     }, error => {
       console.log(error);
     });
