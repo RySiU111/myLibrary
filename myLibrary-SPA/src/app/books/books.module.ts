@@ -8,6 +8,7 @@ import { AppMaterialsModule } from '../materials';
 import { BooksRoutingModule } from './books-routing.module';
 import { BookFormComponent } from './book-form/book-form.component';
 import { FormsModule } from '@angular/forms';
+import { BookDetailedComponent } from './book-detailed/book-detailed.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     BookDashboardComponent,
     BookCardComponent,
-    BookFormComponent
+    BookFormComponent,
+    BookDetailedComponent
   ],
   imports: [
     CommonModule,
