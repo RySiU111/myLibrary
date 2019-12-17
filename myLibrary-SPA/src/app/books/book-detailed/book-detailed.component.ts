@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService, Book } from '../services/book.service';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-detailed',
@@ -12,16 +12,19 @@ export class BookDetailedComponent implements OnInit {
   book: Book;
   id: number;
 
-  constructor(private service: BookService, private route: ActivatedRoute) {
+  constructor(private service: BookService, private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
       this.id = params.get('id');
     }, error => {
       console.log(error);
     });
-   }
-
-  ngOnInit() {
-    this.getBook(this.id);
+    if (isNaN(this.id) || (this.id == 0)) {
+      this.router.navigate(['not-found']);
+    } else {
+      this.getBook(this.id);
+    }
   }
 
   getBook(id: number) {

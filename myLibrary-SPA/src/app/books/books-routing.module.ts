@@ -6,6 +6,7 @@ import { BookDetailedComponent } from './book-detailed/book-detailed.component';
 
 const booksRoutes: Routes = [
   { path: 'form', component: BookFormComponent },
+  { path: 'form/:id', component: BookFormComponent },
   { path: ':id', component: BookDetailedComponent },
   { path: '', component: BookDashboardComponent }
 ];

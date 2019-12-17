@@ -22,6 +22,8 @@
         <button 
             mat-button matTooltip="Edit book's details" 
             matTooltipPosition="above"
+            routerLink="/books/form/{{book?.id}}" 
+            routerLinkActive="router-link-active"
             disabled="{{disableLink}}">Edit</button>      
     </mat-card-actions>
 </mat-card>
