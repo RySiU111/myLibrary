@@ -27,7 +27,6 @@ export class BookDetailedComponent implements OnInit {
   getBook(id: number) {
     this.service.getBook(id).subscribe(response => {
       this.book = response;
-      console.log(this.book);
     }, error => {
       console.log(error);
     });

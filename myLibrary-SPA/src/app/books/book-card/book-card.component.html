@@ -15,7 +15,13 @@
         <button 
             mat-button matTooltip="Show book's details" 
             matTooltipPosition="above"
-            routerLink="/books/{{book?.id}}" routerLinkActive="router-link-active" >Details</button>  
-        <button mat-button matTooltip="Edit book's details" matTooltipPosition="above">Edit</button>      
+            routerLink="/books/{{book?.id}}" 
+            routerLinkActive="router-link-active"
+            disabled="{{disableLink}}"
+            >Details</button>  
+        <button 
+            mat-button matTooltip="Edit book's details" 
+            matTooltipPosition="above"
+            disabled="{{disableLink}}">Edit</button>      
     </mat-card-actions>
 </mat-card>
