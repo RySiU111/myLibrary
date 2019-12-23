@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BookService, Book } from '../services/book.service';
 
 @Component({
   selector: 'app-book-card',
@@ -6,10 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./book-card.component.css']
 })
 export class BookCardComponent implements OnInit {
-  @Input() book: any;
+  @Input() book: Book;
   @Input() disableLink;
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
   }

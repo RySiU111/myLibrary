@@ -7,6 +7,7 @@ import { BookService, Book } from 'src/app/books/services/book.service';
   styleUrls: ['./book-dashboard.component.css']
 })
 export class BookDashboardComponent implements OnInit {
+
   books: Book[];
 
   constructor(private service: BookService) { }
@@ -22,5 +23,4 @@ export class BookDashboardComponent implements OnInit {
       console.log(error);
     });
   }
-
 }

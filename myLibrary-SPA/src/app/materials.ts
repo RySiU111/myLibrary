@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     TextFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
   ],
   exports: [
     NgbModule,
@@ -42,7 +44,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     TextFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
   ]
 })
 export class AppMaterialsModule { }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 export interface Book {
+  id: number;
   title: string;
   description: string;
   releaseDate: Date;
@@ -32,11 +33,5 @@ export class BookService {
 
   searchBook(search: string) {
     return this.http.get(this.baseUrl + '/books/searchBook/' + search.toLowerCase().replace(' ', ''));
-  }
-
-  setDateWithTimeZone(date: Date) {
-    const timeZone = new Date().getTimezoneOffset() / -60;
-    date.setHours(date.getHours() + timeZone);
-    return date;
   }
 }

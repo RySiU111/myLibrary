@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AppService } from 'src/app/services/app.service';
 
 interface Book {
   title: string;
@@ -18,9 +19,13 @@ export class BookFormComponent implements OnInit {
   book: Book = { title: '', description: '', releaseDate: null };
   id: number;
 
-  constructor(private bookService: BookService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private appService: AppService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
       this.id = params.get('id');
     }, error => {
@@ -31,7 +36,7 @@ export class BookFormComponent implements OnInit {
     if (isNaN(this.id) || (this.id == 0)) {
       this.router.navigate(['not-found']);
     } else if (this.id != null) {
-      await this.getBookToEdit(this.id);
+      this.getBookToEdit(this.id);
     }
   }
 
@@ -43,10 +48,10 @@ export class BookFormComponent implements OnInit {
     });
   }
 
-  async getBookToEdit(id: number) {
+  getBookToEdit(id: number) {
     this.bookService.getBook(this.id).subscribe(response => {
       this.book = response;
-      this.book.releaseDate = this.bookService.setDateWithTimeZone(new Date(this.book.releaseDate));
+      this.book.releaseDate = this.appService.setDateWithTimeZone(this.book.releaseDate);
     }, error => {
       console.log(error);
     });
