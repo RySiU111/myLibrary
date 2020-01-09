@@ -19,6 +19,6 @@ namespace myLibrary.API.Data
         Task<IEnumerable<Author>> GetAuthors();
         void EditAuthor(Author author);
         Task<Book> SearchBook(string search);
-        Task<bool> AuthorExist(int id);
+        Task<bool> AuthorExist(int? id);
     }
 }

@@ -28,11 +28,17 @@ namespace myLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostBook (BookForDetailedDto book)
         {
-            if(book == null || !await _repo.AuthorExist(book.AuthorId))
+            if(book == null)
             {
                 return StatusCode(400);
             }
+
             var bookToSave = _mapper.Map<Book>(book);
+
+            if(!await _repo.AuthorExist(bookToSave.AuthorId))
+            {
+                bookToSave.AuthorId = null;
+            }
             
             if(book.Id == 0)
             {

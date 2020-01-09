@@ -94,7 +94,7 @@ namespace myLibrary.API.Data
             return book;
         }
 
-        public async Task<bool> AuthorExist(int id)
+        public async Task<bool> AuthorExist(int? id)
         {
             return await _context.Authors
                 .AnyAsync(a => a.Id == id);

@@ -42,7 +42,7 @@ export class BookFormComponent implements OnInit {
 
   save() {
     this.bookService.postBook(this.book).subscribe(response => {
-      this.router.navigate(['books']);
+      this.router.navigate(['books/' + this.id]);
     }, error => {
       console.log(error);
     });
