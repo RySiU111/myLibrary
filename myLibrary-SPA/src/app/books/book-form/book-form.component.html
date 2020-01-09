@@ -1,7 +1,7 @@
 <div class="container-fluid mt-3">
   <div class="row justify-content-center" *ngIf="book">
     <mat-card class="mat-card-book-form col-5 m-3">
-      <mat-card-title>Book's form</mat-card-title>
+      <mat-card-title>Add new book</mat-card-title>
       <form #form="ngForm" (ngSubmit)="save()">
         <mat-card-content class="row">
           <mat-form-field class="col-12">
@@ -17,16 +17,16 @@
             <input
               matInput
               name="releaseDate"
-              [matDatepicker]="picker"
-              placeholder="Choose release date"
+              [matDatepicker]="releaseDate"
+              placeholder="Release date"
               [(ngModel)]="book.releaseDate"
               required
             />
             <mat-datepicker-toggle
               matSuffix
-              [for]="picker"
+              [for]="releaseDate"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #releaseDate></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="col-12">
             <textarea

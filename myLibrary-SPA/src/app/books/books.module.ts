@@ -9,6 +9,7 @@ import { BooksRoutingModule } from './books-routing.module';
 import { BookFormComponent } from './book-form/book-form.component';
 import { FormsModule } from '@angular/forms';
 import { BookDetailedComponent } from './book-detailed/book-detailed.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 
@@ -17,13 +18,17 @@ import { BookDetailedComponent } from './book-detailed/book-detailed.component';
     BookDashboardComponent,
     BookCardComponent,
     BookFormComponent,
-    BookDetailedComponent
+    BookDetailedComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,
     AppMaterialsModule,
     BooksRoutingModule,
     FormsModule
+  ],
+  entryComponents: [
+    DeleteDialogComponent
   ],
   providers: [
     BookService
