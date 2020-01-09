@@ -9,8 +9,8 @@ using myLibrary.API.Data;
 namespace myLibrary.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190905102503_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200109132909_InitialCreation")]
+    partial class InitialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,8 @@ namespace myLibrary.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("AuthorId");
+
                     b.Property<string>("Description");
 
                     b.Property<DateTime?>("ReleaseDate");
@@ -47,7 +49,16 @@ namespace myLibrary.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("myLibrary.API.Models.Book", b =>
+                {
+                    b.HasOne("myLibrary.API.Models.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId");
                 });
 #pragma warning restore 612, 618
         }

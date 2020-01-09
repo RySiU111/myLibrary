@@ -10,10 +10,14 @@ namespace myLibrary.API.Helpers
         {
             CreateMap<Book, BookForListDto>();
             CreateMap<Book, BookForDetailedDto>();
-            CreateMap<BookForDetailedDto, Book>();
+            CreateMap<BookForDetailedDto, Book>();      
+            CreateMap<Book, BookForAuthorDetailedDto>();
+            
             CreateMap<Author, AuthorForListDto>();
             CreateMap<Author, AuthorForDetailedDto>();
             CreateMap<AuthorForDetailedDto, Author>();
+            CreateMap<Author, AuthorForBookListDto>();
+            CreateMap<Author, AuthorForBookDetailedDto>();
         }
     }
 }

@@ -48,25 +48,32 @@ namespace myLibrary.API.Data
 
         public async Task<Author> GetAuthor(int id)
         {
-            var author = await _context.Authors.FirstOrDefaultAsync(a => a.Id == id);
+            var author = await _context.Authors
+                .Include(b => b.Books)
+                .FirstOrDefaultAsync(a => a.Id == id);
             return author;
         }
 
         public async Task<IEnumerable<Author>> GetAuthors()
         {
-            var authors = await _context.Authors.ToListAsync();
+            var authors = await _context.Authors
+                .ToListAsync();
             return authors;
         }
 
         public async Task<Book> GetBook(int id)
         {
-            var book = await _context.Books.FirstOrDefaultAsync(b => b.Id == id);
+            var book = await _context.Books
+                .Include(a => a.Author)
+                .FirstOrDefaultAsync(b => b.Id == id);
             return book;
         }
 
         public async Task<IEnumerable<Book>> GetBooks()
         {
-            var books = await _context.Books.ToListAsync();
+            var books = await _context.Books
+                .Include(a => a.Author)
+                .ToListAsync();
             return books;
         }
 
@@ -77,8 +84,20 @@ namespace myLibrary.API.Data
 
         public async Task<Book> SearchBook(string search)
         {
-            var book = await _context.Books.FirstOrDefaultAsync(b => b.Title.Replace(" ", "").ToLower() == search.Replace(" ", "").ToLower());
+            var book = await _context.Books
+                .FirstOrDefaultAsync(b => b.Title
+                    .Replace(" ", "")
+                    .ToLower() == search
+                    .Replace(" ", "")
+                    .ToLower()
+                );
             return book;
+        }
+
+        public async Task<bool> AuthorExist(int id)
+        {
+            return await _context.Authors
+                .AnyAsync(a => a.Id == id);
         }
     }
 }

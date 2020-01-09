@@ -28,7 +28,7 @@ namespace myLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostBook (BookForDetailedDto book)
         {
-            if(book == null)
+            if(book == null || !await _repo.AuthorExist(book.AuthorId))
             {
                 return StatusCode(400);
             }
