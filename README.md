@@ -13,4 +13,4 @@ Simple application with database connection. Database built with code first appr
     <li>Now open your browser and go to <code>http://localhost:4200/</code></li>
 </ul>
 
-*database is empty so you must manually populate it (data seed will be added in future).
+*database is empty so you must manually populate it in application (choose option add book in topnav).
