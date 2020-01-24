@@ -39,6 +39,15 @@
             >
             </textarea>
           </mat-form-field>
+          <mat-form-field class="col-12">
+            <input
+              matInput
+              name="photoUrl"
+              placeholder="Photo Url"
+              [(ngModel)]="book.photoUrl"
+              required
+            />
+          </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button [disabled]="form?.invalid" type="submit">

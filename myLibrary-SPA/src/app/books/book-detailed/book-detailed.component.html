@@ -32,7 +32,10 @@
                 <mat-divider></mat-divider>
                 <mat-card-content>
                     <div class="col-12">
-                        <p class="mt-4">Release date: {{book?.releaseDate | date : 'dd.MM.yyyy'}}</p>
+                        <p class="mt-4">Author: {{book?.author?.name}} {{book?.author?.surname}}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="mt-2">Release date: {{book?.releaseDate | date : 'dd.MM.yyyy'}}</p>
                     </div>
                 </mat-card-content>
                 <mat-card-actions>

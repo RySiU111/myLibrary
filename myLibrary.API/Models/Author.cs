@@ -10,5 +10,6 @@ namespace myLibrary.API.Models
         public string Surname { get; set; }
         public string Description { get; set; }
         public List<Book> Books { get; set; }
+        public string PhotoUrl { get; set; }
     }
 }

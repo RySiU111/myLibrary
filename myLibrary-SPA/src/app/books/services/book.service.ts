@@ -7,6 +7,16 @@ export interface Book {
   title: string;
   description: string;
   releaseDate: Date;
+  photoUrl: string;
+  authorId: number;
+  author: Author;
+}
+
+interface Author {
+  id: number;
+  name: string;
+  surname: string;
+  photoUrl: string;
 }
 
 @Injectable()

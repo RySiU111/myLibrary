@@ -8,7 +8,7 @@ import { BookService, Book } from '../services/book.service';
 })
 export class BookCardComponent implements OnInit {
   @Input() book: Book;
-  @Input() disableLink;
+  @Input() disableLink: boolean;
 
   constructor(private bookService: BookService) { }
 

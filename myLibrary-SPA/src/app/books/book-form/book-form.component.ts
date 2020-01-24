@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service';
+import { BookService, Book } from '../services/book.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
-
-interface Book {
-  title: string;
-  description: string;
-  releaseDate: Date;
-}
 
 @Component({
   selector: 'app-book-form',
@@ -16,7 +10,7 @@ interface Book {
 })
 export class BookFormComponent implements OnInit {
 
-  book: Book = { title: '', description: '', releaseDate: null };
+  book: Book = { id: 0, title: '', description: '', releaseDate: null, photoUrl: '', authorId: 0, author: null };
   id: number;
 
   constructor(
