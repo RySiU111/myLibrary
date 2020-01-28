@@ -6,7 +6,7 @@ Simple application with database connection. Database built with code first appr
     <li>Make sure that you have Agular 8 and .NET Core 2.2 on your computer</li>
     <li>Download myLibrary repository</li>
     <li>Open myLibrary.api in terminal and type command <code>dotnet build</code></li>
-    <li>When project has been built, type <code>dotnet ef database update</code> this will create local database for aplication</li>
+    <li>When project has been built, type <code>dotnet ef database update</code> this will create local database for application</li>
     <li>Run backend with <code>dotnet watch run</code></li>
     <li>Open myLibrary-SPA in second terminal and type <code>npm install</code></li>
     <li>When it finish installation type <code>ng serve</code></li>
