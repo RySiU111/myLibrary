@@ -30,7 +30,10 @@
                     <h5>{{book?.title}}</h5>
                 </mat-card-title>
                 <mat-divider></mat-divider>
-                <mat-card-content>
+                <mat-card-content class="mt-4">
+                    <div class="col-12">
+                        <img class="book-cover" mat-mat-card-image src="{{book?.photoUrl}}" width="200px" alt="example photo">
+                    </div>
                     <div class="col-12">
                         <p class="mt-4">Author: {{book?.author?.name}} {{book?.author?.surname}}</p>
                     </div>

@@ -4,7 +4,7 @@
     <mat-card-subtitle>{{book?.author?.name}} {{book?.author?.surname}}</mat-card-subtitle>
     </mat-card-header>
     <div class="row justify-content-center">
-        <img class="book-cover" mat-mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" width="200px" alt="example photo">
+        <img class="book-cover" mat-mat-card-image src="{{book?.photoUrl}}" width="200px" alt="example photo">
     </div>
     <mat-card-content class="mt-2">
         <p>

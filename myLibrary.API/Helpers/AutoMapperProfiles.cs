@@ -18,6 +18,7 @@ namespace myLibrary.API.Helpers
             CreateMap<AuthorForDetailedDto, Author>();
             CreateMap<Author, AuthorForBookListDto>();
             CreateMap<Author, AuthorForBookDetailedDto>();
+            CreateMap<AuthorForBookDetailedDto, Author>();
         }
     }
 }
